@@ -10,11 +10,11 @@
 	</parent>
 	<groupId>com.YassineM.app</groupId>
 	<artifactId>Yassine_app</artifactId>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<name>Yassine_app</name>
 	<url>http://maven.apache.org</url>
-	<description>Demo project for Spring Boot</description>
+	<description>Maven Spring Boot JQuery Terminal</description>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
