@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Terminal - YM</title> 
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <div class="card">
+            <p>>_ &nbsp; Select Terminal Language: </p>
+            <div>
+                <form action="/terminal" method="GET" >
+                    <div class="select">
+                        <div class="option">
+                            <input class="lg" type="submit" name="lg" value="French" />
+                            <span>^</span>
+                        </div>
+                        <div class="option">
+                            <input class="lg" type="submit" name="lg" value="English" />
+                            <span>^</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
+
+<style>
+
+    html{
+        background-color: black;
+    }
+
+    .card{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 90vh;
+        color: #0f0;
+    }
+
+    .lg{
+        background-color: black;
+        color: #0f0;
+    }
+
+    .lg:hover{
+        background-color: grey;
+    }
+
+    .option:hover span{
+        visibility: visible;
+        animation: blinker 1s linear infinite;
+    }
+
+    @keyframes blinker {
+        50% {
+            opacity: 0;
+        }
+    }
+
+    .option{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .option span{
+        visibility: hidden;
+        text-align: center;
+    }
+
+    .select{
+        display: flex;
+        flex-direction: row;
+    }
+</style>

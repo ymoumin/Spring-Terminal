@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css"/>
+    </head>
+    <body th:type="${lg}"> 
+        <!-- JQUEURY TERMINAL -->
+    </body>
+</html>
+
+<script >
+    // Append terminal to 'body' element
+    const lg = $('body').attr('type');
+    $('body').terminal({
+        
+        help: function() {
+        this.echo(lg == "en" ? "This is a command Terminal made by Yassine Moumine, here's a list of avaiable commands: \n\n" + 
+                                    "why: --The reason behind this creation \n" +
+                                    "how: --How did I build this Terminal \n" +
+                                    "who: --Who is Yassine Moumine \n" +
+                                    "bye: --Exit command Terminal \n" 
+                                    :
+                                    "Ceci est un Terminal de commandes crée par Yassine Moumine, Voici une liste de commandes disponibles: \n\n"+ 
+                                    "why: --La raison derriere cet creation \n" +
+                                    "how: --Comment ce Terminal a ete realise \n" +
+                                    "who: --Qui est Yassine Moumine \n" +
+                                    "bye: --Quitter le Terminal de commandes \n" )
+        },
+        why: function() {
+        this.echo(lg == "en" ? "This is a Terminal I build as part of my co-op internship for CRA in fall 2023, in order to deploy and test the DevOps pipeline. \n"
+                                    :
+                                    "Ceci est un Terminal que j'ai creer durant mon stage co-op a CRA pandent l'automne 2023, afin de deployer et tester une pipeline DevOps \n")
+        },
+        how: function() {
+        this.echo(lg == "en" ? "This Terminal is a Jquery terminal, while the whole project is a Java Web Application using Maven & Spring Boot. \n\n" + 
+                                    "Main Spring Boot Dependecies for this project: \n"+
+                                    "-> Spring Web: To build the web application using Spring MVC, in addition to running TomCat as the embedded Java server at http://localhost:8080\n"+
+                                    "-> Thymeleaf: Java template engine used for processing and creating HTML & JavaScript for this project\n"
+                                    :
+                                    "Cette Terminal est un terminal Jquery, tandis que l’ensemble du projet est une application Web Java utilisant Maven et Spring Boot. \n\n"+
+                                    "Dépendances principales de Spring Boot pour ce projet : \n"+
+                                    "-> Spring Web : pour créer l’application Web à l’aide de Spring MVC, en plus d’exécuter TomCat en tant que serveur Java intégré à http://localhost:8080\n"+
+                                    "-> Thymeleaf : moteur de template Java utilisé pour le traitement et la création de HTML et JavaScript pour ce projet \n")
+        },
+        who: function() {
+        this.echo(lg == "en" ? "Hi, My name is Yassine Moumine. I am currently a 4th Year Computer Engineering Student at the University of Ottawa. \n" +
+                                    "I am very passionate about software & hardware developmenet and always looking to learn new stuff! \n"
+                                    :
+                                    "Bonjour, Je m’appelle Yassine Moumine. Je suis actuellement étudiante de 4e année en génie informatique à l’Université d’Ottawa. \n"+
+                                    "Je suis très passionné par le développement de logiciels et de matériel et je cherche toujours à apprendre de nouvelles choses !  \n")
+        },
+        bye: function() {
+        this.echo(lg == "en" ? "Oh, already! Hope you enjoyed your stay! Exiting Terminal"
+                                    :
+                                    "Oh, déjà ! J’espère que vous avez bien apprécié votre visite! Fermeture du Terminal", {newline: false})
+        
+        
+        let a = this;
+        let i = 1;
+        a.set_prompt("");
+            while(i != 4){
+                setTimeout(function() { 
+                    a.echo(' . ', {newline: false});
+                },500*i);
+                 
+                i++;
+            }
+            
+        setTimeout(function() { 
+            window.location.replace('/'); 
+        }, 2500)
+        
+        },
+    }, 
+    {
+        greetings : lg == "en" ? 'Welcome to Yassine\'s Terminal ' : 'Bienvenue au Terminal de Yassine',
+        prompt: '>_ ',
+        Text: ''
+    });
+    
+</script>
+
+<style>
+.terminal [data-text] {
+    color: #0f0!important;
+}
+.cmd-blink span{
+    background-color: #0f0!important;
+    animation: blinker 1s linear infinite;
+    }
+
+    @keyframes blinker {
+        50% {
+            opacity: 0;
+        }
+    }
+</style>
